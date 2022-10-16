@@ -1,0 +1,133 @@
+<!-- ECHO is on. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO</title>
+    
+  <link rel="stylesheet" href="/assets/index.1bb91fd5.css">
+</head>
+
+<body class="bg-grey-200">
+    <nav class="bg-gray-800 px-4 py-3">
+        <div class="flex justify-between items-center">
+            <a href="#">
+                <img width="50" src="/assets/logo.27396cd3.png" alt="">
+            </a>
+            <div class="hidden md:flex gap-2">
+                <a href="#" class="bg-gray-900 text-white px-5 py-3 rounded-md">
+                    To Do
+                </a>
+                <a href="#" class=" text-white px-5 py-3 rounded-md hover:bg-white/5">
+                    Profile
+                </a>
+
+            </div>
+            <div class="flex gap-4">
+
+                <a href="#" class="text-gray-400 py-3 px-2 hover:text-gray-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-bell" width="24"
+                        height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <path
+                            d="M10 5a2 2 0 0 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6">
+                        </path>
+                        <path d="M9 17v1a3 3 0 0 0 6 0v-1"></path>
+                    </svg>
+                </a>
+                <button data-mobile-menu class="text-gray-400 py-3 px-2 hover:text-grey-200 block md:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="24"
+                        height="24" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <line x1="4" y1="6" x2="20" y2="6"></line>
+                        <line x1="4" y1="12" x2="20" y2="12"></line>
+                        <line x1="4" y1="18" x2="20" y2="18"></line>
+                    </svg>
+                </button>
+                <a href="#" class="block bg-blue-600 text-gray-200 px-5 py-3 rounded-md hover:bg-blue-600/80">
+                    Logout
+                </a>
+            </div>
+        </div>
+        <!-- mobile-menu  -->
+        <div class="hidden" id="mobile-menu">
+            <div class="flex flex-col gap-1 py-3">
+                <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md font-medium">
+                    To Do
+                </a>
+                <a href="#" class=" hover:bg-white/5 text-white block px-3 py-2 rounded-md">
+                    Profile
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="lg:px-64 lg:py-16 md:px-40 md:py-16 px-3 py-2 ">
+        <div class="flex flex-row">
+            <div class="basis-2/3">
+                <header class="">
+                    <h2 class="text-3xl text-gray-800 underline decoration-wavy decoration-gray-800">Task</h2>
+                </header>
+            </div>
+            <div class="basis-1/3">
+                <button id="add-icon" class="float-right">
+                    <svg xmlns="http://www.w3.org/2000/svg" class=" text-gray-800 icon icon-tabler icon-tabler-plus"
+                        width="36" height="36" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <div class="container py-7 hidden " id="add-card">
+
+            <div class="border p-2 border-gray-800 rounded">
+                <form action="">
+                    <button class="py-2 float-right" id="close-card">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="28"
+                            height="28" viewBox="0 0 24 24" stroke-width="1.25" stroke="currentColor" fill="none"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                    <input type="text" class="w-full h-10 border border-b-gray-800 px-3" placeholder="Add your task">
+                    <button class="block bg-blue-600 text-gray-200 px-5 my-2 rounded hover:bg-blue-600/80" type="submit">Save</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let buttonMenu = document.querySelector('[data-mobile-menu]');
+        let mobileMenu = document.getElementById('mobile-menu');
+        let addList = document.getElementById('add-card');
+        let addIcon = document.getElementById('add-icon');
+        let closeCard = document.getElementById('close-card');
+
+        buttonMenu.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        })
+        
+        addIcon.addEventListener('click', ()=>{
+            addList.classList.toggle('hidden');
+        })
+
+        closeCard.addEventListener('click',()=>{
+            addList.remove()
+        })
+
+    </script>
+</body>
+
+</html>
